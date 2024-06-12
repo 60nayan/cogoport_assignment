@@ -1,0 +1,6 @@
+# fastapi_project/requirements.txt
+
+fastapi
+uvicorn
+sqlalchemy
+python-dotenv
