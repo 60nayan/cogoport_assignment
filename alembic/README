@@ -1,1 +1,45 @@
-Generic single-database configuration.
+# Cogoport Assignment
+
+This project implements a web application using FastAPI and SQLAlchemy for managing country configurations. It allows CRUD operations on country configurations including fields like business name requirement, PAN number requirement, GSTIN requirement, and now includes sales tax requirement.
+
+### Features
+- **FastAPI**: FastAPI framework is used for building the REST API endpoints.
+- **SQLAlchemy**: SQLAlchemy ORM is utilized for interacting with the PostgreSQL database.
+- **Alembic**: Alembic is used for database migrations to manage schema changes.
+
+### Requirements
+- Python 3.x
+- Dependencies listed in `requirements.txt`
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/cogoport-assignment.git
+   cd cogoport-assignment
+Install dependencies:
+
+bash
+Copy code
+pip install -r requirements.txt
+Set up PostgreSQL database:
+
+Create a PostgreSQL database (e.g., fastapi_db).
+Update the database connection URL in alembic.ini and app/main.py.
+Apply database migrations:
+
+bash
+Copy code
+alembic upgrade head
+Run the FastAPI application:
+
+bash
+Copy code
+uvicorn app.main:app --reload
+Usage
+Access the FastAPI Swagger UI at http://localhost:8000/docs to interact with the API endpoints.
+Endpoints include:
+GET /countries/: Retrieve all country configurations.
+POST /countries/: Create a new country configuration.
+GET /countries/{country_code}/: Retrieve a specific country configuration by code.
+PUT /countries/{country_code}/: Update an existing country configuration.
+DELETE /countries/{country_code}/: Delete a country configuration.
