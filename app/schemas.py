@@ -7,7 +7,7 @@ class CountryConfigurationBase(BaseModel):
     business_name_required: bool = False
     pan_number_required: bool = False
     gstin_required: bool = False
-    # Add more fields as per your requirements
+    
 
 class CountryConfigurationCreate(CountryConfigurationBase):
     pass

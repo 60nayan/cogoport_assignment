@@ -1,6 +1,6 @@
 # app/models.py
 
-from sqlalchemy import Column, Integer, String, Boolean  # Import Boolean type from SQLAlchemy
+from sqlalchemy import Column, Integer, String, Boolean  
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -13,4 +13,4 @@ class CountryConfiguration(Base):
     business_name_required = Column(Boolean, default=False)
     pan_number_required = Column(Boolean, default=False)
     gstin_required = Column(Boolean, default=False)
-    # Add more fields as per your requirements
+    
