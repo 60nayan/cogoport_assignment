@@ -44,7 +44,7 @@ The FastAPI project is designed to manage country configurations, providing REST
 
 ### Prerequisites
 
-- Python 3.7+
+- Python 
 - PostgreSQL
 
 ### Steps
