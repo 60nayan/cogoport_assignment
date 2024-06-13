@@ -1,45 +1,108 @@
-# Cogoport Assignment
+# CogoPort Assignment
 
-This project implements a web application using FastAPI and SQLAlchemy for managing country configurations. It allows CRUD operations on country configurations including fields like business name requirement, PAN number requirement, GSTIN requirement, and now includes sales tax requirement.
+## Introduction
 
-### Features
-- **FastAPI**: FastAPI framework is used for building the REST API endpoints.
-- **SQLAlchemy**: SQLAlchemy ORM is utilized for interacting with the PostgreSQL database.
-- **Alembic**: Alembic is used for database migrations to manage schema changes.
+This project implements a backend API using FastAPI for managing country configurations. It allows CRUD operations (Create, Read, Update, Delete) for country configurations, stored in a PostgreSQL database. The API includes endpoints to create new configurations, retrieve existing ones, update configurations, delete configurations, and fetch configurations by country code.
 
-### Requirements
-- Python 3.x
-- Dependencies listed in `requirements.txt`
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [API Documentation](#api-documentation)
+7. [Database Schema](#database-schema)
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/cogoport-assignment.git
-   cd cogoport-assignment
-Install dependencies:
 
-bash
-Copy code
-pip install -r requirements.txt
-Set up PostgreSQL database:
+## Project Overview
 
-Create a PostgreSQL database (e.g., fastapi_db).
-Update the database connection URL in alembic.ini and app/main.py.
-Apply database migrations:
+### Description
 
-bash
-Copy code
-alembic upgrade head
-Run the FastAPI application:
+The FastAPI project is designed to manage country configurations, providing RESTful endpoints to perform CRUD operations on a PostgreSQL database. It includes:
+- **API Endpoints**: Create, read, update, delete country configurations.
+- **Database Integration**: Uses SQLAlchemy ORM with Alembic for database migrations.
+- **Validation**: Input validation using Pydantic models.
+- **Documentation**: Automatically generated API documentation with Swagger UI.
 
-bash
-Copy code
-uvicorn app.main:app --reload
-Usage
-Access the FastAPI Swagger UI at http://localhost:8000/docs to interact with the API endpoints.
-Endpoints include:
-GET /countries/: Retrieve all country configurations.
-POST /countries/: Create a new country configuration.
-GET /countries/{country_code}/: Retrieve a specific country configuration by code.
-PUT /countries/{country_code}/: Update an existing country configuration.
-DELETE /countries/{country_code}/: Delete a country configuration.
+### Key Features
+
+- **CRUD Operations**: Create, Read, Update, Delete country configurations.
+- **Validation**: Input validation with Pydantic models.
+- **API Documentation**: Interactive API documentation with Swagger UI.
+- **Database Migration**: Database schema management using Alembic.
+
+## Technologies Used
+
+- **FastAPI**: FastAPI framework for building APIs with Python 3.7+
+- **SQLAlchemy**: SQL toolkit and Object-Relational Mapping (ORM) for database interaction
+- **PostgreSQL**: Database management system
+- **Alembic**: Database migration tool for SQLAlchemy
+- **Pydantic**: Data validation and settings management using Python type hints
+- **uvicorn**: ASGI server implementation for running FastAPI
+
+## Installation
+
+### Prerequisites
+
+- Python 3.7+
+- PostgreSQL
+
+### Steps
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/your_username/fastapi-project.git
+    cd fastapi-project
+    ```
+
+2. **Set up virtual environment**:
+    ```bash
+    python -m venv venv
+    venv\Scripts\activate #on windows
+    ```
+
+3. **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Set up the database**:
+    - Create a PostgreSQL database (e.g., `fastapi_db`).
+    - Update the database connection URL in `alembic.ini` and `app/config.py`.
+
+5. **Apply database migrations**:
+    ```bash
+    alembic upgrade head
+    ```
+
+6. **Run the FastAPI server**:
+    ```bash
+    uvicorn app.main:app --reload
+    ```
+
+## Usage
+
+### API Endpoints
+
+- **Create Country Configuration**: `POST /countries/`
+- **Get All Country Configurations**: `GET /countries/`
+- **Get Country Configuration by ID**: `GET /countries/{id}`
+- **Update Country Configuration**: `PUT /countries/{id}`
+- **Delete Country Configuration**: `DELETE /countries/{id}`
+
+## API Documentation
+
+The API documentation can be accessed at `/docs` (e.g., http://localhost:8000/docs) which provides an interactive interface to test and explore the API endpoints.
+
+## Database Schema
+
+### Country Configuration
+
+- **id**: Integer, primary key
+- **country_code**: String(2), unique identifier for the country
+- **business_name_required**: Boolean, whether business name is required
+- **pan_number_required**: Boolean, whether PAN number is required
+- **gstin_required**: Boolean, whether GSTIN is required
+
+
+
